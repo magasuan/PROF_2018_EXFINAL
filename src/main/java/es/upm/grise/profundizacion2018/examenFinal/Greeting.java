@@ -6,12 +6,12 @@ public class Greeting {
 	
 	public String getGreeting( Language language ) {
 		// Get current hour
-		Calendar calendar = Calendar.getInstance();
-		int hour = calendar.get( Calendar.HOUR_OF_DAY );
+		//Creado metodo para crear la hora
+		int hour = getHora();
 		
 		// Find out the greeting language
 		if ( language == null )
-			language = Message.getDefaultLanguage();
+			language = getDefaultLanguage();
 		
 		// Get the moment of the day
 		TimeOfTheDay moment;
@@ -23,7 +23,22 @@ public class Greeting {
 			moment = TimeOfTheDay.EVENING;
 			
 		// Return the message		
-		return Message.getMessage( moment, language );
+		return getMessage( moment, language );
+	}
+	
+	int getHora() {
+		return getCalendar().get( Calendar.HOUR_OF_DAY );
+	}
+	String getMessage(TimeOfTheDay m, Language l) {
+		return Message.getMessage( m, l );
+	}
+
+	Language getDefaultLanguage() {
+		return Message.getDefaultLanguage();
+	}
+
+	Calendar getCalendar() {
+		return Calendar.getInstance();
 	}
 
 }
