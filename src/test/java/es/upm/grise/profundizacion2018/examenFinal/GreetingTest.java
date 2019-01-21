@@ -2,10 +2,17 @@ package es.upm.grise.profundizacion2018.examenFinal;
 
 import static org.junit.Assert.*;
 
+import java.util.Calendar;
+import java.util.Vector;
+
 import org.junit.Test;
 
 public class GreetingTest {
 
+	public abstract class MyCalendar extends Calendar {
+		MyCalendar calendar = (MyCalendar) MyCalendar.getInstance();
+		int hour = 15;
+		}
 	@Test
 	public void smokeTest1() {
 		Greeting greeting = new Greeting();
