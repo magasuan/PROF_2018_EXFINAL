@@ -28,20 +28,30 @@ public class GreetingTest {
 	public void smokeTest1() {
 		//MyCalendar calendario = mock(MyCalendar.class);
 		//when(calendario.getHora()).thenReturn(3);
-		
+		when(this.greeting.getHora()).thenReturn(8);
 		assertEquals("Good morning", greeting.getGreeting(null));
 	}
 
 	@Test
 	public void smokeTest2() {
-		Greeting greeting = new Greeting();
+		when(this.greeting.getHora()).thenReturn(8);
+		//Greeting greeting = new Greeting();
 		assertEquals("Good morning", greeting.getGreeting(Language.ENGLISH));
 	}
 
 	@Test
 	public void smokeTest3() {
-		Greeting greeting = new Greeting();
+		// 8 de la mañana
+		when(this.greeting.getHora()).thenReturn(8);
+		//Greeting greeting = new Greeting();
 		assertEquals("Buenos dÃ­as", greeting.getGreeting(Language.SPANISH));
+	}
+	@Test
+	public void smokeTestPruebaTarde() {
+		// Prueba para comprobar que funciona por la tarde
+		when(this.greeting.getHora()).thenReturn(14);
+		//Greeting greeting = new Greeting();
+		assertEquals("Buenas tardes", greeting.getGreeting(Language.SPANISH));
 	}
 
 //	@Test
